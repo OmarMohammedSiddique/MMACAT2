@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save Our Wildlife | Tana River Conservancy</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <main id="main" class="page">
+      <header class="masthead">
+        <p class="eyebrow">Tana River Conservancy</p>
+        <h1 class="title">Save Our Wildlife</h1>
+        <span class="rule" aria-hidden="true"></span>
+      </header>
+
+      <figure class="film">
+        <video
+          id="wildlife"
+          class="film__video"
+          controls
+          preload="metadata"
+    
+          aria-describedby="film-note"
+        >
+          <source src="wildlife.mp4" type="video/mp4" />
+
+          Your browser does not support embedded video. You can
+          <a href="wildlife.mp4">download the film</a> instead.
+        </video>
+
+        <figcaption id="film-note" class="film__note">
+          Filmed across one dry season along the Tana River. It follows the
+          rangers and herders who share the land with the animals, and the work
+          that keeps the wildlife here. Watch it, then share it.
+        </figcaption>
+      </figure>
+
+      <div class="controls">
+        <button
+          id="toggle"
+          class="btn"
+          type="button"
+          aria-pressed="false"
+          aria-controls="wildlife"
+        >
+          Play film
+        </button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

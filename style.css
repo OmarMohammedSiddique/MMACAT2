@@ -1,0 +1,180 @@
+/* ----------------------------------------------------------------
+   Save Our Wildlife - Tana River Conservancy
+   Calm, minimal layout. One serif, a quiet moss accent, lots of air.
+------------------------------------------------------------------- */
+
+:root {
+  --paper:     #ebede7;   /* cool misted stone background        */
+  --ink:       #232a22;   /* deep forest charcoal for headings   */
+  --ink-soft:  #59614f;   /* muted ink for the description       */
+  --moss:      #44513b;   /* accent: control background          */
+  --moss-deep: #333d2c;   /* accent on hover/active              */
+  --line:      #cbd0c3;   /* hairline rules and frames           */
+
+  --measure: 40rem;       /* comfortable reading width           */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Spectral", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.6;
+  /* Type scales gently with the viewport without ever getting cramped */
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Layout ------------------------------------------------------ */
+
+.page {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 5vw, 2rem);
+}
+
+.masthead {
+  text-align: center;
+  margin-bottom: clamp(2rem, 6vw, 3.5rem);
+}
+
+.eyebrow {
+  margin: 0 0 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.title {
+  margin: 0;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.rule {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin: clamp(1.5rem, 4vw, 2rem) auto 0;
+  background: var(--line);
+}
+
+/* --- Film -------------------------------------------------------- */
+
+.film {
+  margin: 0;
+}
+
+.film__video {
+  display: block;
+  width: 100%;
+  /* Keeps a clean 16:9 frame at any width, no letterboxing maths needed */
+  aspect-ratio: 16 / 9;
+  background: #1a1f19;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+/* When the button hides the film, collapse it without breaking the flow */
+.film__video.is-hidden {
+  display: none;
+}
+
+.film__note {
+  max-width: 34rem;
+  margin: clamp(1.25rem, 4vw, 1.75rem) auto 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 1rem;
+}
+
+/* --- Control ----------------------------------------------------- */
+
+.controls {
+  margin-top: clamp(1.75rem, 5vw, 2.5rem);
+  text-align: center;
+}
+
+.btn {
+  appearance: none;
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  /* Generous tap target for touch (well above the 44px guideline) */
+  min-height: 3rem;
+  padding: 0.75rem 2rem;
+  color: var(--paper);
+  background: var(--moss);
+  border: 1px solid var(--moss);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--moss-deep);
+  border-color: var(--moss-deep);
+}
+
+/* Clear, visible focus ring for keyboard users */
+.btn:focus-visible,
+.film__video:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 3px;
+}
+
+/* --- Accessibility helpers -------------------------------------- */
+
+/* Skip link stays out of sight until focused, then appears top-left */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  border-radius: 2px;
+  transition: top 0.2s ease;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+/* Honour users who prefer less movement */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* --- Small screens ----------------------------------------------- */
+
+@media (max-width: 30rem) {
+  .btn {
+    width: 100%;       /* full-width, easier to hit on a phone */
+  }
+
+  .film__note {
+    text-align: left;
+  }
+}
